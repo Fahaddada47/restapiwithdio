@@ -4,6 +4,7 @@ import 'package:restapiwithdio/services/network_executor.dart';
 
 
 import 'package:dio/dio.dart';
+import 'package:restapiwithdio/services/urls.dart';
 
 
 class CommentsController {
@@ -13,10 +14,10 @@ class CommentsController {
 
   Future<List<CommentsModel>> getComments() async {
     try {
-      const String commentsEndpoint = 'https://jsonplaceholder.typicode.com/comments';
+      // const String commentsEndpoint = Urls.verifyComments();
 
       final NetworkResponse response = await _networkExecutor.getRequest(
-        path: commentsEndpoint,
+        path: Urls.verifyComments(),
       );
 
       if (response.statusCode == 200) {
